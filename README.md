@@ -23,3 +23,32 @@ All times are UTC times.
 
 ## Thanks
 This code owes a big debt to seraphx2 especially this code base: https://github.com/seraphx2/ESI.NET
+
+## appsettings.json 
+`````
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "EsiConfig": {
+    "EsiUrl": "https://esi.evetech.net/",
+    "SSOUrl":"https://login.eveonline.com",
+    "DataSource": "Tranquility",
+    "ClientId": "xxx",
+    "SecretKey": "xxx",
+    "CallbackUrl": "https://localhost:5001/api/SSO",
+    "UserAgent": "Structure Watch",
+    "AuthVersion": "v2"
+  },
+  "StructureWatchConfig":{
+    "databaseConnectionString":"Data Source=StructureWatch.db"
+  }
+}
+`````
+
+
