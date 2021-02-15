@@ -41,7 +41,7 @@ namespace  wilhe1m.StructureWatch
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(
                 options => {
-                options.LoginPath= new PathString("/api/SSO");
+                options.LoginPath= new PathString("/api/SSO/Login");
                 options.LogoutPath= new PathString("/api/SSO/logout");
                 options.AccessDeniedPath= new PathString("/Unauthorized");
                 options.Cookie.Name = "StructureWatch_Auth";

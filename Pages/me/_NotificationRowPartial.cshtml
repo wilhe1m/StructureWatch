@@ -22,7 +22,8 @@
     
     string structureLink  = "Structures?Id="+ System.Text.RegularExpressions.Regex.Match(Model.ParsedData["structureLink"],@"//(\d+)").Groups[1];
 }
-
+        
+@if(@Model.Type =="StructureImpendingAbandonmentAssetsAtRisk"){
 <tr id="notif_@Model.Id">
     <td class="notifydate">@Model.Timestamp.ToString("yyyy-MM-dd")</td>
     <td class="type"><a href="http://games.chruker.dk/eve_online/item.php?type_id=@(Model.ParsedData["structureTypeID"])">@StructureTypes[Model.ParsedData["structureTypeID"]]</a></td>
@@ -30,3 +31,13 @@
     <td class="name"><a href="@(structureLink)">@structureName</a></td>
     <td class=""><a href="/api/Notifications/Hide?Id=@Model.Id">Ignore@(Model.Hidden?"d":"")</a></td>
  </tr>
+}
+else{
+    <tr>
+        <td>@Model.Timestamp.ToString("yyyy-MM-dd:hh:mm")</td>
+        <td>@Model.Type</td>
+        <td>N/A</td>
+        <td><pre>@Model.Text</pre></td>
+            <td><a href="/api/Notifications/Hide?id=@(Model.Id)">Ignore@(Model.Hidden?"d":"")</a></td>
+    </tr>
+}

@@ -5,6 +5,11 @@
 }
 
 <h1>Structure Detail: @Model.Structure.Name</h1>
+<div class="flex-right" >
+    <form action="/Me/Notifications">
+        <button>Notifications</button>
+    </form> 
+</div>
 <p>First Seen:@Model.Structure.FirstSeen</p>
 
 
@@ -18,7 +23,6 @@
         </thead>
     
     @foreach (var not in Model.NotificationsAboutId
-        .Where(n=> n.Type=="StructureImpendingAbandonmentAssetsAtRisk" )
         .OrderByDescending(n=>n.Timestamp)
     ){
         <partial name="_NotificationRowPartial.cshtml" model="not"/>
