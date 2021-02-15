@@ -20,3 +20,6 @@ will try to write a database in the install root.
 
 ## Code dumbness
 All times are UTC times.
+
+## Thanks
+This code ownes a big debt to seraphx2 especially this code base: https://github.com/seraphx2/ESI.NET

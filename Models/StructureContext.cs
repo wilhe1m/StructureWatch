@@ -1,5 +1,4 @@
 using System;
-using ESI.NET.Models.SSO;
 using Microsoft.EntityFrameworkCore;
 
 namespace wilhe1m.StructureWatch.Models{
@@ -8,8 +7,7 @@ namespace wilhe1m.StructureWatch.Models{
         public DbSet<Structure> Structures{get;set;}
         public DbSet<Notification> Notifications{get;set;}
         public DbSet<Character> Characters{get;set;}
-        public DbSet<Token> Tokens{get;set;}
-
+       
         public StructureContext(){
             this.Database.EnsureCreated(); 
         }
@@ -25,7 +23,7 @@ namespace wilhe1m.StructureWatch.Models{
             modelBuilder.Entity<Notification>().HasIndex(s => s.NotificationId);
             modelBuilder.Entity<Structure>().HasKey(s => s.Id);
             modelBuilder.Entity<Structure>().HasIndex(s => s.StructureId);
-            modelBuilder.Entity<Token>().HasKey(s => s.Id);
+    
             modelBuilder.Entity<Character>().HasKey(s => s.Id);
             modelBuilder.Entity<Character>().HasIndex(s => s.CharacterID);
         }
