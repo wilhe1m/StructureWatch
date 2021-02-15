@@ -1,0 +1,32 @@
+@{
+    Dictionary<string, string> StructureTypes = new Dictionary<string, string>{
+        {"35832","Astrahus"},
+        {"35833","Fortizar"},
+        {"35834","Keepstar"},
+
+        {"47513","'Draccous' Fortizar"},
+        {"47514","'Horizon' Fortizar"},
+        {"47515","'Marginis' Fortizar"},
+        {"47512","'Moreau' Fortizar"},
+        {"47516","'Prometheus' Fortizar"},
+        {"40340","Palatine Keepstar"},
+
+        {"35825","Raitaru"},
+        {"35826","Azbel"},
+         {"35827","Sotiyo"},
+
+        {"35835","Athanor"},
+         {"35836","Tatara"}
+    };
+    string structureName = System.Text.RegularExpressions.Regex.Replace(Model.ParsedData["structureLink"],"<.+?>","");
+    
+    string structureLink  = "Structures?Id="+ System.Text.RegularExpressions.Regex.Match(Model.ParsedData["structureLink"],@"//(\d+)").Groups[1];
+}
+
+<tr id="notif_@Model.Id">
+    <td class="notifydate">@Model.Timestamp.ToString("yyyy-MM-dd")</td>
+    <td class="type"><a href="http://games.chruker.dk/eve_online/item.php?type_id=@(Model.ParsedData["structureTypeID"])">@StructureTypes[Model.ParsedData["structureTypeID"]]</a></td>
+    <td class="out">@Model.Timestamp.AddDays(int.Parse(@Model.ParsedData["daysUntilAbandon"])).ToString("yyyy-MM-dd")</td>
+    <td class="name"><a href="@(structureLink)">@structureName</a></td>
+    <td class=""><a href="/api/Notifications/Hide?Id=@Model.Id">Ignore@(Model.Hidden?"d":"")</a></td>
+ </tr>
