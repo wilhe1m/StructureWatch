@@ -54,6 +54,8 @@ namespace wilhe1m.StructureWatch.Services{
             //get notifications
            
             List<Notification> notifications = await EVESwagger.GetNotificationsByCharacterId(character.CharacterID, character.AccessToken);
+            //deduplciated
+            notifications = notifications.Where(n=> context.Notifications.Select(x=> x.NotificationId).Contains(n.NotificationId) == false).ToList();
             context.Notifications.AddRange(notifications);
             context.SaveChanges();
           

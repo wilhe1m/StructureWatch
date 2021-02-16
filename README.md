@@ -19,7 +19,43 @@ At startup will try to write a database in the install root.
 
 
 ## Code dumbness
-All times are UTC times.
+* All times are UTC times.
+* in the config host names do not end with / or stuff breaks.
 
 ## Thanks
 This code owes a big debt to seraphx2 especially this code base: https://github.com/seraphx2/ESI.NET
+
+## appsettings.json 
+
+`````
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "EsiConfig": {
+    "EsiUrl": "https://esi.evetech.net",
+    "SSOUrl":"https://login.eveonline.com",
+    "DataSource": "Tranquility",
+    "ClientId": "xxx",
+    "SecretKey": "xxx",
+    "CallbackUrl": "https://localhost:5001/api/SSO",
+    "UserAgent": "Structure Watch",
+    "AuthVersion": "v2"
+  },
+  "StructureWatchConfig":{
+    "databaseConnectionString":"Data Source=StructureWatch.db"
+  }
+}
+`````
+
+## TODO
+* fix url for borwser to use config.
+* better error handling, especially for token related issues.
+* make icon
+
+

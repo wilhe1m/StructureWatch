@@ -2,6 +2,7 @@
 @model  wilhe1m.StructureWatch.Pages.Me.structureModel
 @{
     ViewData["Title"] = "Structure Details";
+    string SystemName = Model.Structure.Name.Substring(0,Model.Structure.Name.IndexOf(" -"));
 }
 
 <h1>Structure Detail: @Model.Structure.Name</h1>
@@ -9,6 +10,9 @@
     <form action="/Me/Notifications">
         <button>Notifications</button>
     </form> 
+    <form action="https://evemaps.dotlan.net/system/@(SystemName)">
+        <button>DotLan @SystemName</button>
+    </form>
 </div>
 <p>First Seen:@Model.Structure.FirstSeen</p>
 

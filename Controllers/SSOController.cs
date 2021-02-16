@@ -64,7 +64,7 @@ namespace wilhe1m.Controllers{
                 HttpContext.User = principal;
             }
             
-            Response.Redirect("/");
+            Response.Redirect("/LoggedIn");
 
             
         }
