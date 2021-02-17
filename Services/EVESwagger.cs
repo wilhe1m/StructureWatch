@@ -29,7 +29,7 @@ namespace wilhe1m.StructureWatch.Services{
             SecretKey = configurationSection["SecretKey"];
             AuthVersion = configurationSection["AuthVersion"];
             CallbackUrl = configurationSection["CallbackUrl"];
-            DataSource = configurationSection["DataSouce"];
+            DataSource = configurationSection["DataSource"];
             EsiUrl = configurationSection["EsiUrl"];
             SSOUrl = configurationSection["SSOUrl"];
         }

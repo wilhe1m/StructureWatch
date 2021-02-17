@@ -40,7 +40,7 @@ This code owes a big debt to seraphx2 especially this code base: https://github.
   "EsiConfig": {
     "EsiUrl": "https://esi.evetech.net",
     "SSOUrl":"https://login.eveonline.com",
-    "DataSource": "Tranquility",
+    "DataSource": "Ttranquility",
     "ClientId": "xxx",
     "SecretKey": "xxx",
     "CallbackUrl": "https://localhost:5001/api/SSO",

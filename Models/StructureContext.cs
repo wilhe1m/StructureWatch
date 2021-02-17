@@ -20,13 +20,13 @@ namespace wilhe1m.StructureWatch.Models{
 
         protected override void OnModelCreating(ModelBuilder modelBuilder){
             modelBuilder.Entity<Notification>().HasKey(n => n.Id);
-            modelBuilder.Entity<Notification>().HasIndex(s => s.NotificationId) .IsUnique();
+            modelBuilder.Entity<Notification>().HasIndex(s => s.NotificationId);// .IsUnique();
 
             modelBuilder.Entity<Structure>().HasKey(s => s.Id);
-            modelBuilder.Entity<Structure>().HasIndex(s => s.StructureId) .IsUnique();
+            modelBuilder.Entity<Structure>().HasIndex(s => s.StructureId);// .IsUnique();
     
             modelBuilder.Entity<Character>().HasKey(s => s.Id);
-            modelBuilder.Entity<Character>().HasIndex(s => s.CharacterID).IsUnique();
+            modelBuilder.Entity<Character>().HasIndex(s => s.CharacterID);// .IsUnique();
         }
 
     }
