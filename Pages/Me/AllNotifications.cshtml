@@ -1,44 +1,50 @@
-﻿
-@page
+﻿@page
 @model  wilhe1m.StructureWatch.Pages.Me.NotificiationsModel
 @{
     ViewData["Title"] = "Notification List";
-    
+
 }
 
 <h1>Notifications List</h1>
-<div class="flex-right" >
+<div class="flex-right">
     <form action="/api/Notifications">
         <button>Get Mine!</button>
     </form>
     <form action="/api/Notifications/All">
         <button>Get All!</button>
     </form>
-    
-    
+
+
 </div>
 <p> All raw Notifications</p>
-@if(Model.Notifications.Count >0){
+@if (Model.Notifications.Count > 0)
+{
     <table>
         <thead>
-            <th>Notify Date</th>
-            <th>Type</th>
-            <th>Text</th>
-            <th>Controls</th>
+        <th>Notify Date</th>
+        <th>Type</th>
+        <th>Text</th>
+        <th>Controls</th>
         </thead>
-    
-    @foreach (var not in Model.Notifications
-        .OrderByDescending(n=>n.Timestamp)
-    ){
-        <tr>
-            <td>@not.Timestamp.ToString("yyyy-MM-dd:hh:mm")</td>
-            <td>@not.Type</td>
-            <td><pre>@not.Text</pre></td>
-             <td><a href="/api/Notifications/Hide?id=not.Id">Ignore@(not.Hidden?"d":"")</a></td>
-        </tr>
-    }
+
+        @foreach (var not in Model.Notifications
+            .OrderByDescending(n => n.Timestamp)
+            )
+        {
+            <tr>
+                <td>@not.Timestamp.ToString("yyyy-MM-dd:hh:mm")</td>
+                <td>@not.Type</td>
+                <td>
+                    <pre>@not.Text</pre>
+                </td>
+                <td>
+                    <a href="/api/Notifications/Hide?id=not.Id">Ignore@(not.Hidden ? "d" : "")</a>
+                </td>
+            </tr>
+        }
     </table>
 }
-else{
+else
+{
     <p>No notifications found... are things good?</p>
 }

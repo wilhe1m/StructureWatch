@@ -7,8 +7,9 @@
 
 <h2>Error Details: @Model.exception.Message</h2>
 
-@if(Model.exception.InnerException != null){
-<h3>Inner Exception: @Model.exception.InnerException.Message</h3>
+@if (Model.exception.InnerException != null)
+{
+    <h3>Inner Exception: @Model.exception.InnerException.Message</h3>
 }
 <!-- cheeky StackTrace-->
 <!--@Model.exception.StackTrace -->

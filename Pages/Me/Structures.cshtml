@@ -2,14 +2,14 @@
 @model  wilhe1m.StructureWatch.Pages.Me.structureModel
 @{
     ViewData["Title"] = "Structure Details";
-    string SystemName = Model.Structure.Name.Substring(0,Model.Structure.Name.IndexOf(" -"));
+    var SystemName = Model.Structure.Name.Substring(0, Model.Structure.Name.IndexOf(" -"));
 }
 
 <h1>Structure Detail: @Model.Structure.Name</h1>
-<div class="flex-right" >
+<div class="flex-right">
     <form action="/Me/Notifications">
         <button>Notifications</button>
-    </form> 
+    </form>
     <form action="https://evemaps.dotlan.net/system/@(SystemName)">
         <button>DotLan @SystemName</button>
     </form>
@@ -17,19 +17,19 @@
 <p>First Seen:@Model.Structure.FirstSeen</p>
 
 
-    <h2>Notification(s) for this Structure</h2>
-    <table>
-        <thead>
-            <th>Notify Date</th>
-            <th>Type</th>
-            <th>Abandon Date</th>
-            <th>Location</th>
-        </thead>
-    
+<h2>Notification(s) for this Structure</h2>
+<table>
+    <thead>
+    <th>Notify Date</th>
+    <th>Type</th>
+    <th>Abandon Date</th>
+    <th>Location</th>
+    </thead>
+
     @foreach (var not in Model.NotificationsAboutId
-        .OrderByDescending(n=>n.Timestamp)
-    ){
+        .OrderByDescending(n => n.Timestamp)
+        )
+    {
         <partial name="_NotificationRowPartial.cshtml" model="not"/>
     }
-    </table>
-
+</table>

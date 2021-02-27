@@ -1,9 +1,7 @@
-using System;
-
-
-namespace wilhe1m.StructureWatch.Models{
+namespace wilhe1m.StructureWatch.Models
+{
 //JUST USE EVEWHO.
-    public class Corporation{
-        
+    public class Corporation
+    {
     }
 }

@@ -6,12 +6,12 @@ using wilhe1m.StructureWatch.Models;
 namespace wilhe1m.StructureWatch.Authentication
 {
     /// <summary>
-    /// Represents a shibboleth user auth claim
+    ///     Represents a shibboleth user auth claim
     /// </summary>
     public interface IEveSSOClaim
     {
         /// <summary>
-        /// Build you a claim principle
+        ///     Build you a claim principle
         /// </summary>
         /// <param name="context"></param>
         /// <param name="username"></param>

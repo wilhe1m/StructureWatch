@@ -5,7 +5,7 @@
 }
 
 <h1>Notifications List</h1>
-<div class="flex-right" >
+<div class="flex-right">
     <form action="/api/Notifications">
         <button>Get Mine</button>
     </form>
@@ -15,27 +15,30 @@
     <form action="/Me/AllNotifications">
         <button>"eXPERT" vIEW</button>
     </form>
-    
-    
+
+
 </div>
 <p> A List of StructureImpendingAbandonmentAssetsAtRisk Notifications</p>
-@if(Model.Notifications.Count >0){
+@if (Model.Notifications.Count > 0)
+{
     <table>
         <thead>
-            <th>Notify Date</th>
-            <th>Type</th>
-            <th>Abandon Date</th>
-            <th>Location</th>
+        <th>Notify Date</th>
+        <th>Type</th>
+        <th>Abandon Date</th>
+        <th>Location</th>
         </thead>
-    
-    @foreach (var not in Model.Notifications
-        .Where(n=> n.Type=="StructureImpendingAbandonmentAssetsAtRisk" )
-        .OrderByDescending(n=>n.Timestamp)
-    ){
-        <partial name="_NotificationRowPartial.cshtml" model="not"/>
-    }
+
+        @foreach (var not in Model.Notifications
+            .Where(n => n.Type == "StructureImpendingAbandonmentAssetsAtRisk")
+            .OrderByDescending(n => n.Timestamp)
+            )
+        {
+            <partial name="_NotificationRowPartial.cshtml" model="not"/>
+        }
     </table>
 }
-else{
+else
+{
     <p>No notifications found... are things good?</p>
 }

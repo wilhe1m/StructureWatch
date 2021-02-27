@@ -6,20 +6,23 @@
 
 <h1>Authorized Characters</h1>
 <p>Users on this list have Notifications lists that are monitored</p>
-@if(Model.Characters.Count >0){
+@if (Model.Characters.Count > 0)
+{
     <table>
         <thead>
-            <th>Picture</th>
-           <th>Name</th>
-           <th>EveId</th>
-           <th>Controls</th>
+        <th>Picture</th>
+        <th>Name</th>
+        <th>EveId</th>
+        <th>Controls</th>
         </thead>
-    
-    @foreach (var character in Model.Characters){
-        <partial name="_CharacterRowPartial.cshtml" model="character"/>
-    }
+
+        @foreach (var character in Model.Characters)
+        {
+            <partial name="_CharacterRowPartial.cshtml" model="character"/>
+        }
     </table>
 }
-else{
+else
+{
     <p>No Charactars found... are things good?</p>
 }

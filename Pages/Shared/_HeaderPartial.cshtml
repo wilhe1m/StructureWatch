@@ -1,16 +1,20 @@
 @{
-    var currentUser =  User.Identity.Name;
+    var currentUser = User.Identity.Name;
 
 }
 <header id="top_header">
     <nav>
-        
-        @if(String.IsNullOrEmpty(currentUser)){
-            <a href="/"><img src="/assets/structurewatch.png" alt="home" /></a>
-            <a class="right" href="/api/SSO/Login">AuthorizeUser</a>
+
+        @if (string.IsNullOrEmpty(currentUser))
+        {
+            <a href="/"><img src="/assets/structurewatch.png" alt="home"/>StructureWatch</a>
+            <a class="right" href="/api/SSO/Login">Authorize User</a>
         }
-        else{
-            <a href="/Me"><img src="/assets/structurewatch.png" alt="home" /></a>
+        else
+        {
+            <a href="/Me">
+                <img src="/assets/structurewatch.png" alt="home"/>
+            </a>
             <a class="right" href="/Me">@currentUser</a>
             <a class="right" href="/api/SSO/Logout">Logout</a>
         }

@@ -1,4 +1,4 @@
-namespace wilhe1m.StructureWatch.Models{
+namespace wilhe1m.StructureWatch.Models
+{
 //TODO
-
 }

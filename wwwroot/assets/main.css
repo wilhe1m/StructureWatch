@@ -5,47 +5,45 @@
     --links-hover:#fae;
     --lines:#369;
     --vistited:#7ac;
-  }
+}
 
-html{
-    background:var(--background);
-    color:var(--text);
+html {
+    background: var(--background);
+    color: var(--text);
     font: 16px sans-serif;
 }
-a{
-    color:var(--links);
+
+a { color: var(--links); }
+
+a:hover, a:active { color: var(--links-hover); }
+
+a:visited { color: var(--vistited) }
+
+nav a img { height: 1.5em; }
+
+.right {
+    float: right;
+    margin-left: 1ex;
 }
-a:hover, a:active{
-    color:var(--links-hover);
-}
-a:visited{
-    color:var(--vistited)
-}
-nav a img{
-    height:1.5em;
-}
-.right{
-    float:right;
-    margin-left:1ex;
-}
-button{
+
+button {
     background-color: var(--links);
-    padding:1ex 1em;
     border: 1px solid var(--lines);
-    color:var(--background);
+    color: var(--background);
+    padding: 1ex 1em;
 }
-button:hover, button:active{
+
+button:hover, button:active {
     background-color: var(--links-hover);
-    padding:1ex 1em;
     border: 1px solid var(--links-hover);
-    color:var(--background);
+    color: var(--background);
+    padding: 1ex 1em;
 }
-.flex-right{
+
+.flex-right {
     display: flex;
-    flex-direction:row-reverse;
-    justify-content: end;
-    
+    flex-direction: row-reverse;
+    justify-content: end;    
 }
-.flex-right form{
-    margin-left:1em;
-}
+
+.flex-right form { margin-left: 1em; }

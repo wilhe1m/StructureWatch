@@ -1,6 +1,12 @@
 <tr>
-    <td><img src="https://image.eveonline.com/Character/@(Model.CharacterID)_32.jpg"></td>
-    <td><a href="https://evewho.com/character/@(Model.CharacterID)"></a>@Model.CharacterName</td>
+    <td>
+        <img src="https://image.eveonline.com/Character/@(Model.CharacterID)_32.jpg">
+    </td>
+    <td>
+        <a href="https://evewho.com/character/@(Model.CharacterID)"></a>@Model.CharacterName
+    </td>
     <td>@Model.CharacterID</td>
-    <td><a href="/api/Character/remove?id=@(Model.CharacterID)">Remove</a></td>
+    <td>
+        <a href="/api/Character/remove?id=@(Model.CharacterID)">Remove</a>
+    </td>
 </tr>
