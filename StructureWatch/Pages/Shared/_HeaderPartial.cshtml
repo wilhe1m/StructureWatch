@@ -1,0 +1,35 @@
+@{
+    var currentUser = User.Identity.Name;
+
+}
+<header id="top_header">
+    <nav>
+
+        @if (string.IsNullOrEmpty(currentUser))
+        {
+            <div>
+                <a href="/" class="left"><img src="/assets/structurewatch.png" alt="home"/>StructureWatch</a>
+            </div>
+            <div>
+                
+            </div>
+            <div>
+                <a class="right" href="/api/SSO/Login">Authorize User</a>
+            </div>
+        }
+        else
+        {
+            <div>
+            <a class="left" href="/Me"><img src="/assets/structurewatch.png" alt="home"/></a>
+            </div>
+            <div>
+            <a href="/Me/Characters">Characters</a>
+            <a href="/Me/Notifications">Notifications</a>
+            </div>
+            <div>
+                <a class="right" href="/Me">@currentUser</a>
+                <a class="right" href="/api/SSO/Logout">Logout</a>
+            </div>
+        }
+    </nav>
+</header>

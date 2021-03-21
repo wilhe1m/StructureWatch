@@ -23,6 +23,7 @@ namespace wilhe1m.StructureWatch.Models
         public DateTime StateChanged { get; set; } = DateTime.UtcNow;
         public int Id { get; set; }
         public long StructureId { get; set; }
+        public long CorporationId {get; set;}
         public string CorportationTag { get; set; }
         public string AllianceTag { get; set; }
     }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace wilhe1m.StructureWatch.Models
 {
@@ -12,14 +13,17 @@ namespace wilhe1m.StructureWatch.Models
         private Dictionary<string, string> _parsed;
 
 
-        public long NotificationId { get; set; } = NO_INT;
-        public long Id { get; set; } = NO_INT;
-        public long SenderId { get; set; } = NO_INT;
-        public string SenderType { get; set; } = NO_STRING;
-        public string Text { get; set; } = NO_STRING;
+        [JsonProperty("notification_id")]
+        public long NotificationId { get; set; } //= NO_INT;
+        public long Id { get; set; } //= NO_INT;
+        [JsonProperty("sender_id")]
+        public long SenderId { get; set; } //= NO_INT;
+        [JsonProperty("sender_type")]
+        public string SenderType { get; set; } //= NO_STRING;
+        public string Text { get; set; } //= NO_STRING;
 
-        public DateTime Timestamp { get; set; } = NO_DATE;
-        public string Type { get; set; } = NO_STRING;
+        public DateTime Timestamp { get; set; }// = NO_DATE;
+        public string Type { get; set; } //= NO_STRING;
 
         public bool Hidden { get; set; }
 

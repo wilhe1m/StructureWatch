@@ -67,7 +67,8 @@ namespace wilhe1m.StructureWatch
                 app.UseStatusCodePagesWithRedirects("/Status?code={0}");
             }
 
-            app.UseHttpsRedirection();
+            //run behind load balancer/ reverse prxy
+            //app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 

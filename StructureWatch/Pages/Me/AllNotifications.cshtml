@@ -5,7 +5,8 @@
 
 }
 
-<h1>Notifications List</h1>
+<h1>eXPERT vIEW Notifications List</h1>
+<p> All raw Notifications</p>
 <div class="flex-right">
     <form action="/api/Notifications">
         <button>Get Mine!</button>
@@ -16,11 +17,12 @@
 
 
 </div>
-<p> All raw Notifications</p>
+
 @if (Model.Notifications.Count > 0)
 {
     <table>
         <thead>
+            <th>Nid</th>
         <th>Notify Date</th>
         <th>Type</th>
         <th>Text</th>
@@ -31,7 +33,8 @@
             .OrderByDescending(n => n.Timestamp)
             )
         {
-            <tr>
+                    <tr  id="notif_@not.Id">
+                        <td>@not.NotificationId</td>
                 <td>@not.Timestamp.ToString("yyyy-MM-dd:hh:mm")</td>
                 <td>@not.Type</td>
                 <td>

@@ -1,7 +1,7 @@
 :: CLEAN UP existing folders
-del ..\bin\Release\netcoreapp3.1\win-x64\publish
-::del ..\bin\Release\netcoreapp3.1\linux-x64\publish
-::del ..\bin\Release\netcoreapp3.1\osx-x64\publish
+del ..\StructureWatch\bin\Release\netcoreapp3.1\win-x64\publish
+::del ..\StructureWatch\bin\Release\netcoreapp3.1\linux-x64\publish
+::del ..\StructureWatch\bin\Release\netcoreapp3.1\osx-x64\publish
 
 ::Do the publish
 

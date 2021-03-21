@@ -19,12 +19,13 @@ a:hover, a:active { color: var(--links-hover); }
 
 a:visited { color: var(--vistited) }
 
-nav a img { height: 1.5em; }
-
-.right {
-    float: right;
-    margin-left: 1ex;
+#top_header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
 }
+
+nav a img { height: 1.5em; }
 
 button {
     background-color: var(--links);

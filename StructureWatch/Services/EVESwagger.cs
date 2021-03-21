@@ -17,8 +17,10 @@ namespace wilhe1m.StructureWatch.Services
     /// </summary>
     public class SwaggerConfig
     {
+        
         private IConfigurationSection configurationSection;
 
+        
         public SwaggerConfig(IConfigurationSection configurationSection)
         {
             this.configurationSection = configurationSection;
@@ -111,7 +113,7 @@ namespace wilhe1m.StructureWatch.Services
             }
             else if (grant_type == Token.REFRESH)
             {
-                body = $"{{\"grant_type\":\"{grant_type}\",\"refresh_token\":\"{Uri.EscapeDataString(code)}\"}}";
+                body = $"{{\"grant_type\":\"{grant_type}\",\"refresh_token\":\"{code}\"}}";
             }
             else
             {
@@ -131,7 +133,7 @@ namespace wilhe1m.StructureWatch.Services
                     .error_description;
                 throw new ArgumentException(error);
             }
-
+                Console.WriteLine(response);
             var token = JsonConvert.DeserializeObject<Token>(response);
 
             return token;
@@ -176,7 +178,9 @@ namespace wilhe1m.StructureWatch.Services
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new ArgumentException("Cannot get notifcaitons:" + await response.Content.ReadAsStringAsync());
 
-            return JsonConvert.DeserializeObject<List<Notification>>(await response.Content.ReadAsStringAsync());
+            string values =await response.Content.ReadAsStringAsync();
+            Console.WriteLine(values);
+            return JsonConvert.DeserializeObject<List<Notification>>(values);
         }
 
         public static async Task<Structure> GetStructurePublicInfo(int id, string AccessToken)

@@ -1,4 +1,5 @@
 <tr>
+    
     <td>
         <img src="https://image.eveonline.com/Character/@(Model.CharacterID)_32.jpg">
     </td>
@@ -9,4 +10,6 @@
     <td>
         <a href="/api/Character/remove?id=@(Model.CharacterID)">Remove</a>
     </td>
+  
+    <td>@(Model.ExpiresAt - @DateTime.UtcNow) </td>
 </tr>

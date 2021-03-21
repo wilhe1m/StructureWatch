@@ -15,10 +15,21 @@ namespace wilhe1m.StructureWatch.Services
             //UpdatePublicStructureList(context);
             //GET ALL CHARs
             var all_chars = context.Characters.ToList();
+            List<String> Failed = new List<string>();
 
-            foreach (var c in all_chars) await UpdateOneCharacter(context, c);
+            foreach (var c in all_chars) {
+                try{
+                await UpdateOneCharacter(context, c);
+                }
+                catch(Exception ex){
+                   Failed.Add(c.CharacterName+":" +ex.Message);
+                }
+            }
 
             //at this point pull 
+            if(Failed.Count>0){
+                throw new Exception("Failed to poll all characters:"+ String.Join("\n", Failed));
+            }
         }
 
         public static void UpdatePublicStructureList(StructureContext context)
@@ -47,8 +58,9 @@ namespace wilhe1m.StructureWatch.Services
             var notifications =
                 await EVESwagger.GetNotificationsByCharacterId(character.CharacterID, character.AccessToken);
             //deduplciated
-            notifications = notifications.Where(n =>
-                context.Notifications.Select(x => x.NotificationId).Contains(n.NotificationId) == false).ToList();
+            //TODO this SHould work except it doesnt so we need to figure out why.
+            // var Current = context.Notifications.Select(x => x.NotificationId).ToArray();
+            notifications = notifications.Where(n => context.Notifications.Select(x => x.NotificationId).Contains(n.NotificationId) == false).ToList();
             context.Notifications.AddRange(notifications);
             context.SaveChanges();
         }
