@@ -179,7 +179,7 @@ namespace wilhe1m.StructureWatch.Services
                 throw new ArgumentException("Cannot get notifcaitons:" + await response.Content.ReadAsStringAsync());
 
             string values =await response.Content.ReadAsStringAsync();
-            Console.WriteLine(values);
+            //Console.WriteLine(values);
             return JsonConvert.DeserializeObject<List<Notification>>(values);
         }
 

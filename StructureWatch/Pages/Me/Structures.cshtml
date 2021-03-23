@@ -6,6 +6,8 @@
 }
 
 <h1>Structure Detail: @Model.Structure.Name</h1>
+<p> Paste in to EVE notepad for clicky link: </p>
+<textarea>@(Model.NotificationsAboutId.Count>0?Model.NotificationsAboutId[0].ParsedData["structureLink"]:"n/a")</textarea>
 <div class="flex-right">
     <form action="/Me/Notifications">
         <button>Notifications</button>
@@ -13,7 +15,7 @@
     <form action="https://evemaps.dotlan.net/system/@(SystemName)">
         <button>DotLan @SystemName</button>
     </form>
-    <form action="https://evewho.com/corporation/@(SystemName)">
+    <form >
         <button><s>Corp Details</s></button>
     </form>
 </div>
