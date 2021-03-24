@@ -54,18 +54,21 @@ This code owes a big debt to seraphx2 especially this code base: https://github.
 `````
 ## Change Log
 
+### 0.0.5
+ * Add new Icon.
+ 
 ### 0.0.4
  * fix issue with refresh tokens not being sent correctly
  * add link to structure details have to paste into note pad in game though
  * tweak op bar layout.
  * add and ignore test project
- *
+
+
 ## TODO
-* fix url for borwser to use config.
-* make icon
+* fix url for browser to use config.
 * write install script and apache reverse proxy config
-* dont load on the UI thread, so that we do a spnner or somethng on the buttons
+* dont load on the UI thread, so that we do a spinner or something on the buttons
 * only poll every some many minutes per character. 
-* settings page
+* settings page?
 
 
