@@ -5,6 +5,7 @@
     --links-hover:#fae;
     --lines:#369;
     --vistited:#7ac;
+    --selected:rgba(0,0,0,0.1)
 }
 
 html {
@@ -26,7 +27,7 @@ a:visited { color: var(--vistited) }
 }
 
 nav a img { height: 1.5em; }
-
+thead, tr:nth-child(even) {background: var(--selected)}
 button {
     background-color: var(--links);
     border: 1px solid var(--lines);

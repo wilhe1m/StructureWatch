@@ -24,6 +24,20 @@ namespace wilhe1m.Controllers
 
             Response.Redirect("/Me/Notifications");
         }
+        [HttpGet]
+        [Route("~/api/[controller]/{id}")]
+        public async Task GetNotifications(int Id)
+        {
+            if (!string.IsNullOrEmpty(User.Identity.Name))
+                using (var context = new StructureContext())
+                {
+                    var character = context.Characters.Where(c => c.Id == Id)
+                        .FirstOrDefault();
+                    if (character != null) await Polling.UpdateOneCharacter(context, character);
+                }
+
+            Response.Redirect("/Me/Notifications");
+        }
 
         [HttpGet]
         [Route("All")]

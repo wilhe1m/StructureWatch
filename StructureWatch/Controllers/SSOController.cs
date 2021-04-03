@@ -45,6 +45,8 @@ namespace wilhe1m.Controllers
                 if (fromdb == null)
                 {
                     context.Characters.Attach(auth_char);
+                    //If we have just signed in for the first time, force update the notifications for that character
+                    var ignoreWarning = StructureWatch.Services.Polling.UpdateOneCharacter(context, auth_char, true);
                 }
                 else
                 {

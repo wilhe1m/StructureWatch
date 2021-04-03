@@ -55,7 +55,8 @@ This code owes a big debt to seraphx2 especially this code base: https://github.
 ## Change Log
 
 ### 0.0.5
- * Add new Icon.
+ * Add new svg Icon
+ 
  
 ### 0.0.4
  * fix issue with refresh tokens not being sent correctly

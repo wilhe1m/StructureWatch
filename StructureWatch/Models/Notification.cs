@@ -26,7 +26,7 @@ namespace wilhe1m.StructureWatch.Models
         public string Type { get; set; } //= NO_STRING;
 
         public bool Hidden { get; set; }
-
+        
         public Dictionary<string, string> ParsedData
         {
             get

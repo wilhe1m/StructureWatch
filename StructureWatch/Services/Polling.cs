@@ -40,7 +40,7 @@ namespace wilhe1m.StructureWatch.Services
             // List<long> newStructures = publicStructures.RemoveAll(known);
         }
 
-        public static async Task UpdateOneCharacter(StructureContext context, Character character)
+        public static async Task UpdateOneCharacter(StructureContext context, Character character, bool force = false)
         {
             if (string.IsNullOrEmpty(character.AccessToken)) throw new Exception("User had no existing token.");
             if (character.ExpiresAt < DateTime.UtcNow)
@@ -54,15 +54,16 @@ namespace wilhe1m.StructureWatch.Services
             }
 
             //get notifications
-
-            var notifications =
-                await EVESwagger.GetNotificationsByCharacterId(character.CharacterID, character.AccessToken);
-            //deduplciated
-            //TODO this SHould work except it doesnt so we need to figure out why.
-            // var Current = context.Notifications.Select(x => x.NotificationId).ToArray();
-            notifications = notifications.Where(n => context.Notifications.Select(x => x.NotificationId).Contains(n.NotificationId) == false).ToList();
-            context.Notifications.AddRange(notifications);
-            context.SaveChanges();
+            if (force|| character.ExpiresAt < DateTime.UtcNow){
+                var notifications =
+                    await EVESwagger.GetNotificationsByCharacterId(character.CharacterID, character.AccessToken);
+                //deduplciated
+                //TODO this SHould work except it doesnt so we need to figure out why.
+                // var Current = context.Notifications.Select(x => x.NotificationId).ToArray();
+                notifications = notifications.Where(n => context.Notifications.Select(x => x.NotificationId).Contains(n.NotificationId) == false).ToList();
+                context.Notifications.AddRange(notifications);
+                context.SaveChanges();
+            }
         }
 
         public static void UpdateStructures(StructureContext context, List<int> structuresIdList)
