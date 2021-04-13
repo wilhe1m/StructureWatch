@@ -3,14 +3,14 @@
 @{
     ViewData["Title"] = "Notification List";
 }
-
+<script src="/assets/sw.js"></script>
 <h1>Notifications List</h1>
 <div class="flex-right">
     <form action="/api/Notifications">
-        <button>Get Mine</button>
+        <button onclick="sw.pollOne()">Get Mine</button>
     </form>
     <form action="/api/Notifications/All">
-        <button>Get All</button>
+        <button onclick="sw.pollAll()">Get All</button>
     </form>
     <form action="/Me/AllNotifications">
         <button>"eXPERT" vIEW</button>

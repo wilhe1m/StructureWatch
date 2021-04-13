@@ -1,24 +1,23 @@
 @page
 @model  wilhe1m.StructureWatch.Pages.Me.structureModel
 @{
-    ViewData["Title"] = "Structure Details";
+    ViewData["Title"] =  @Model.Structure.Name;
     var SystemName = Model.Structure.Name.Substring(0, Model.Structure.Name.IndexOf(" -"));
 }
 
 <h1>Structure Detail: @Model.Structure.Name</h1>
-<p> Paste in to EVE notepad for clicky link: </p>
-<textarea>@(Model.NotificationsAboutId.Count>0?Model.NotificationsAboutId[0].ParsedData["structureLink"]:"n/a")</textarea>
 <div class="flex-right">
-    <form action="/Me/Notifications">
-        <button>Notifications</button>
-    </form>
     <form action="https://evemaps.dotlan.net/system/@(SystemName)">
         <button>DotLan @SystemName</button>
     </form>
-    <form >
+    @* <form >
+        <!-- This is currently disabled because there does not seem to be a simple way to get this data from the api -->
         <button><s>Corp Details</s></button>
-    </form>
+    </form> *@
 </div>
+<p> Paste in to EVE notepad for clicky link: </p>
+<textarea style="width:95%">@(Model.NotificationsAboutId.Count>0?Model.NotificationsAboutId[0].ParsedData["structureLink"]:"n/a")</textarea>
+
 <p>First Seen:@Model.Structure.FirstSeen</p>
 
 

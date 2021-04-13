@@ -6,16 +6,15 @@
     <td>
         <a href="https://evewho.com/character/@(Model.CharacterID)"></a>@Model.CharacterName
     </td>
-    <td>@Model.CharacterID</td>
     <td>
-        <a href="/api/Character/remove?id=@(Model.CharacterID)">Remove</a>
+        <a href="/api/Character/remove?id=@(Model.CharacterID)" onclick="return confirm('This will remove the charater but leave their notificatations')"">Remove</a>
     </td>
     <td>
         @if(Model.ExpiresAt <= DateTime.UtcNow){
             <a href="/api/Notifications/@(Model.Id)">Update</a>
         }
         else{
-            <span>WAIT</span>
+            <span>Updated with 20 minutes</span>
         }
     </td>
   

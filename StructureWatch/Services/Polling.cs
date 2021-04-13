@@ -54,7 +54,7 @@ namespace wilhe1m.StructureWatch.Services
             }
 
             //get notifications
-            if (force|| character.ExpiresAt < DateTime.UtcNow){
+           // if (force || character.ExpiresAt < DateTime.UtcNow){
                 var notifications =
                     await EVESwagger.GetNotificationsByCharacterId(character.CharacterID, character.AccessToken);
                 //deduplciated
@@ -63,7 +63,7 @@ namespace wilhe1m.StructureWatch.Services
                 notifications = notifications.Where(n => context.Notifications.Select(x => x.NotificationId).Contains(n.NotificationId) == false).ToList();
                 context.Notifications.AddRange(notifications);
                 context.SaveChanges();
-            }
+           // }
         }
 
         public static void UpdateStructures(StructureContext context, List<int> structuresIdList)

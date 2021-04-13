@@ -4,8 +4,10 @@ server {
 	listen [::]:80 default_server;
 
 	root /var/www/html;
+	
+	#needed for SSL if you do certbot
+	server_name your_domain_name; 
 
-	server_name _;
 
 	location / {
 		# this is where we are Setting up StrucutreWatch stuff.

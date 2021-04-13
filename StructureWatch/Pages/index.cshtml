@@ -1,12 +1,23 @@
 @page
 @model  wilhe1m.StructureWatch.Pages.IndexModel
 @{
+    ViewData["Title"] = "Main";
 }
 
+<div style="text-align:center;">
+    <img src="assets/sw.svg" alt="Structure Watch Logo" style="display: inline-block;"/>
+    <h1>StructureWatch</h1>
+</div>
 
-<h1>StructureWatch</h1>
-<p>Welcome to StructureWatch</p>
-
+<p>Welcome to StructureWatch.</p>
+<p> This is a tool that aggregates EVE Notifications to look for structures that are going to go abandoned. This will let you to:
+    <ol>
+        <li>Scout the structures</li>
+        <li>War dec their owners</li>
+        <li>Blow up the Structures</li>
+        <li>Steal all the loot that drops becasue asset safety is off for abandoned structures</li>
+    </ol> 
+ Note that ALL notifications are saved, so only share  an install with trusted friends.</p>
 <form action="/Me/Notifications">
     <button>Look at Notifications</button>
 </form>

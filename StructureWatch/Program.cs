@@ -10,7 +10,7 @@ namespace wilhe1m.StructureWatch
         public static void Main(string[] args)
         {
             //TODO use config for this
-            OpenBrowser("https://localhost:5001/");
+            //OpenBrowser("http://localhost:5000/");
             CreateHostBuilder(args).Build().Run();
         }
 
