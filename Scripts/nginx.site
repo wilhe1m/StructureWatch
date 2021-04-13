@@ -1,0 +1,16 @@
+
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	server_name _;
+
+	location / {
+		# this is where we are Setting up StrucutreWatch stuff.
+		proxy_pass http://127.0.0.1:5000;
+		auth_basic " StructureWatch";
+		auth_basic_user_file /path/to/passwords/file;
+	}
+}
